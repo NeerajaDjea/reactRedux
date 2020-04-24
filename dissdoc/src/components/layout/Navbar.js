@@ -9,7 +9,6 @@ const Navbar = () => {
       <div className='container'>
         <Link to='/' className='brand-logo left'>
           DissDoc
-          <i class='material-icons'>hospital</i>
         </Link>
         <SignedInLinks />
         <SignedOutLinks />
