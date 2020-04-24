@@ -5,6 +5,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import PatientDetails from './components/patients/PatientDetails';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
+import CreatePatient from './components/patients/CreatePatient';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/patient/:id' component={PatientDetails} />
           <Route path='/signin' component={SignIn} />
           <Route path='/signup' component={SignUp} />
+          <Route path='/create' component={CreatePatient} />
         </Switch>
       </div>
     </BrowserRouter>
