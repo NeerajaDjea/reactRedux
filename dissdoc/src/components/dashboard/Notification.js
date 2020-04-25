@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 const Notifications = () => {
   return (
     <div>
-      <p> Notifications</p>
+      <p className='white-text'> Notifications</p>
     </div>
   );
 };
