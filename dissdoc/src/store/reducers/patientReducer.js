@@ -8,6 +8,10 @@ const initstate = {
 }
 
 const patientReducer = (state = initstate, action) => {
+    switch (action.type) {
+        case 'CREATE_PATIENT':
+            console.log('created patient', action.patient)
+    }
     return state
 
 }

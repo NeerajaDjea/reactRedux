@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { createPatient } from '../../store/actions/patientActions';
+import { connect } from 'react-redux';
 
 class CreatePatient extends Component {
   state = {
@@ -13,7 +15,8 @@ class CreatePatient extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.createPatient(this.state);
+    // console.log(this.state);
   };
   render() {
     return (
@@ -49,5 +52,9 @@ class CreatePatient extends Component {
     );
   }
 }
-
-export default CreatePatient;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createPatient: (patient) => dispatch(createPatient(patient)),
+  };
+};
+export default connect(null, mapDispatchToProps)(CreatePatient);
