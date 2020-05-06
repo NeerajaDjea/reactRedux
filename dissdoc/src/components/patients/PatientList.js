@@ -1,5 +1,6 @@
 import React from 'react';
 import PatientSummary from './PatientSummary';
+import { Link } from 'react-router-dom';
 
 const PatientList = ({ patients }) => {
   console.log(patients);
@@ -7,7 +8,12 @@ const PatientList = ({ patients }) => {
     <div className='patient-list section'>
       {patients &&
         patients.map((patient) => {
-          return <PatientSummary patient={patient} key={patient.id} />;
+          console.log(patient);
+          return (
+            <Link to={'/patient/' + patient.id}>
+              <PatientSummary patient={patient} key={patient.id} />
+            </Link>
+          );
         })}
     </div>
   );

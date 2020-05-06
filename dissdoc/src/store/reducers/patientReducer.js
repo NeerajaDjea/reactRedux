@@ -11,8 +11,14 @@ const patientReducer = (state = initstate, action) => {
     switch (action.type) {
         case 'CREATE_PATIENT':
             console.log('created patient', action.patient)
+            return state;
+        case 'CREATE_PATIENT_ERROR':
+            console.log('created patient error', action.err)
+            return state;
+        default:
+            return state
     }
-    return state
+
 
 }
 export default patientReducer

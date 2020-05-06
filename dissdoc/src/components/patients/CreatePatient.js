@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 class CreatePatient extends Component {
   state = {
-    patientName: '',
-    hospitalId: '',
-    details: '',
+    Name: '',
+    HospitalId: '',
+    Doctor: '',
   };
   handleChange = (e) => {
     this.setState({
