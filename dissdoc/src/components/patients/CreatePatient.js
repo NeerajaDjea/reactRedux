@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { createPatient } from '../../store/actions/patientActions';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class CreatePatient extends Component {
   state = {
@@ -19,6 +20,8 @@ class CreatePatient extends Component {
     // console.log(this.state);
   };
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to='/signin' />;
     return (
       <div className='container'>
         <form onSubmit={this.handleSubmit} className='white'>
@@ -52,9 +55,14 @@ class CreatePatient extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     createPatient: (patient) => dispatch(createPatient(patient)),
   };
 };
-export default connect(null, mapDispatchToProps)(CreatePatient);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePatient);

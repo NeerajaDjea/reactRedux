@@ -4,10 +4,12 @@ import PatientList from '../patients/PatientList';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 class Dashboard extends Component {
   render() {
-    const { patients } = this.props;
+    const { patients, auth } = this.props;
+    if (!auth.uid) return <Redirect to='/signin' />;
     // console.log(this.props);
     return (
       <div className='dashboard container'>
@@ -25,6 +27,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     patients: state.firestore.ordered.patients,
+    auth: state.firebase.auth,
   };
 };
 export default compose(

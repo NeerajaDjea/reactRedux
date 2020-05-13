@@ -2,15 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 const PatientDetails = (props) => {
   const { patient } = props;
+  const { auth } = this.props;
+  if (!auth.uid) return <Redirect to='/signin' />;
   if (patient) {
     return (
       <div className='container section patient-details'>
         <div className='card z-depth-0'>
           <div className='card-content'>
-            <span className='card-title'>Patient Name -{patient.Name}</span>
+            <span className='card-title'>Patient Name-{patient.Name}</span>
             <p> Hospital id : {patient.HospitalId}</p>
             <p>{patient.Notes}</p>
           </div>
@@ -36,6 +39,7 @@ const mapStateToProps = (state, ownProps) => {
   const patient = patients ? patients[id] : null;
   return {
     patient: patient,
+    auth: state.firebase.auth,
   };
 };
 

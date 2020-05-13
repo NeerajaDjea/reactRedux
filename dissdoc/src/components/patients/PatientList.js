@@ -10,8 +10,8 @@ const PatientList = ({ patients }) => {
         patients.map((patient) => {
           console.log(patient);
           return (
-            <Link to={'/patient/' + patient.id}>
-              <PatientSummary patient={patient} key={patient.id} />
+            <Link to={'/patient/' + patient.id} key={patient.id}>
+              <PatientSummary patient={patient} />
             </Link>
           );
         })}
