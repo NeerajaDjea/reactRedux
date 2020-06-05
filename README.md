@@ -4,4 +4,4 @@ A Health care app which allows healthcare officials form diffrent specialities t
 
 
 React Redux and Firebase
-![mobile screenshot](Screenshot.png)
+![mobile screenshot](dissdoc/Screenshot.png)
